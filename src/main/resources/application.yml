@@ -1,0 +1,31 @@
+server:
+  error:
+    include-message: always
+    include-binding-errors: always
+
+spring:
+  datasource:
+    password: scorch12
+    url: jdbc:postgresql://localhost:5432/bank_customers
+    username: postgres
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: darren.mannuela@gmail.com
+    password: drx123456
+    protocol: smtp
+    properties.mail.smtp:
+      auth: true
+      starttls.enable: true
+      ssl.trust: smtp.gmail.com
+
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    show-sql: true

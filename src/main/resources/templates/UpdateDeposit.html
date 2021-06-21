@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"  lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Update Deposit</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+          crossorigin="anonymous">
+
+</head>
+<body>
+
+        <div class="text-center">
+            <p><h1>Update Deposit</h1><p>
+        </div>
+        <form th:action="@{/UpdateDeposit}" th:object="${updateDepositRequest}" th:method="POST" class="container-fluid"
+              style="max-width: 350px; margin: 0 auto">
+
+
+            <label for="updateDeposit">Deposit</label>:
+            <input type="number" step="0.01" id="updateDeposit" min="0" class="form-control" oninput="validity.valid||(value='')"
+                   placeholder="Deposit" th:field="*{updateDeposit}" required/><br />
+
+            <label for="password">Password</label>:
+            <input type="password" id="password" class="form-control" placeholder="Password" th:field="*{password}"
+                   required/> <br />
+
+            <label >What would you like to do:<br/>
+                <select class="form-control" th:field="*{choice}">
+                    <option th:value="deposit">Deposit</option>
+                    <option th:value="takeout">Takeout</option>
+                </select>
+                <br/>
+
+            </label>
+
+            <input type="submit" value="Apply" class="btn btn-primary form-control" />
+        </form>
+
+</body>
+</html>

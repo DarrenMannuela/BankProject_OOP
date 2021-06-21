@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <title>User's Page</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+              rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+              crossorigin="anonymous">
+
+        <script type="text/javascript">
+            window.history.forward();
+            function noBack() {
+                window.history.forward();
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class="text-center">
+            <p><h1>Bank Online</h1><p>
+        </div>
+        <div class="text-center container-fluid">
+            <div>
+                <p th:text="'Name: '+${customer.getFirstName()}+' '+${customer.getLastName()}" ></p>
+            </div>
+            <div>
+
+                <p th:text="'Gender: '+${customer.getGender()}"></p>
+            </div>
+            <div>
+                <p th:text="'Age: '+${customer.getAge()}"></p>
+            </div>
+            <div>
+                <p th:text="'Date-of-birth: '+${customer.getDob()}"></p>
+            </div>
+            <div>
+                <p th:text="'Deposit: '+${customer.getDeposit()}"></p>
+            </div>
+            <div>
+                <p th:text="'Loan: '+${customer.getLoan()}"></p>
+            </div>
+        </div>
+        <div style="padding-top: 15px">
+            <form action="#" th:action="@{/UpdateDeposit}" th:method="GET" class="container-fluid text-center"
+                  style="max-width: 350px; margin: 0 auto" >
+                <button type="submit" class="btn btn-primary" style="width: 200px; height:auto">
+                    Deposit
+                </button>
+            </form>
+        </div>
+        <div style="padding-top: 15px">
+            <form action="#" th:action="@{/TakeLoan}" th:method="GET" class="container-fluid text-center"
+                  style="max-width: 350px; margin: 0 auto" >
+                <button type="submit" class="btn btn-primary" style="width: 200px; height:auto;">
+                    Loan
+                </button>
+            </form>
+        </div>
+        <div style="padding-top: 15px">
+            <form action="#" th:action="@{/logout}" th:method="GET" class="container-fluid text-center"
+                  style="max-width: 450px; margin: 0 auto" >
+                <button type="submit" class="btn btn-primary" style="width: 200px; height:auto">
+                    Logout
+                </button>
+            </form>
+        </div>
+
+    </body>
+</html>

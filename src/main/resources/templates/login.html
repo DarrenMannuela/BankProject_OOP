@@ -1,0 +1,56 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Bank Login Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+          crossorigin="anonymous">
+
+</head>
+    <body>
+        <div>
+            <div th:if="${param.error}">
+                Invalid username and password.
+            </div>
+
+            <div th:if="${param.logout}">
+                You have been logged out.
+            </div>
+
+            <div class="text-center">
+                <p><h1>Bank Online</h1><p>
+            </div>
+
+                <form th:action="@{/login}" th:method="POST" class="container-fluid text-center"
+                      style="max-width: 350px; margin: 0 auto" >
+
+                    <div style="padding: 15px">
+                        <label>
+                            <input type="email" name="username"  class="form-control" placeholder="Email"
+                                             required autofocus/>
+                        </label>
+                    </div>
+
+                    <div style="padding: 15px">
+                        <label>
+                            <input type="password" name="password" class="form-control" placeholder="Password"
+                                   required/>
+                        </label>
+                    </div>
+
+                    <div style="padding: 15px">
+                        <input type="submit" class="btn btn-primary" style="width: 200px; height:auto"  value="Sign In"/>
+                    </div>
+            </form>
+
+            <form th:action="@{/RegisterNewCustomer}" th:method="GET" class="container-fluid text-center"
+                  style="max-width: 350px; margin: 0 auto">
+                <div>
+                    <input type="submit" value="Register" class="btn btn-primary" style="width: 200px; height:auto" />
+                </div>
+            </form>
+
+        </div>
+    </body>
+</html>

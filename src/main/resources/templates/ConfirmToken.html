@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Confirmation</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+          rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+          crossorigin="anonymous">
+
+
+
+</head>
+<body>
+    <form th:action="@{/ConfirmToken}" th:method="POST " th:object="${token}" class="container-fluid text-center">
+        <div style="padding: 15px">
+            <label for="token"><h1>Confirmation Token</h1></label><br/>
+            <input type="text"  id="token" th:field="*{validateToken}" placeholder="Confirmation Token"/> <br />
+        </div>
+        <div>
+            <input type="submit" value="Confirm" class="btn btn-primary" style="width: 190px; height:auto"/>
+        </div>
+    </form>
+</body>
+</html>
